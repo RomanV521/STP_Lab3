@@ -20,7 +20,7 @@ public class Main {
         System.out.println("Task 3:\nДан символ C. Вывести два символа, первый из которых предшествует символу C в кодовой таблице, а второй следует за символом C.\n");
 
         char signC='C';
-        System.out.println("Символ перед \"С\": "+ (char) (signC-1));
+        System.out.println("Символ перед \""+signC+"\": "+ (char) (signC-1));
         System.out.println("Символ после \"С\": "+ (char) (signC+1));
 
     }
