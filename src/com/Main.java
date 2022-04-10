@@ -1,5 +1,6 @@
 package com;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -56,14 +57,51 @@ public class Main {
         System.out.println("\nДлина S: " + S.length());
         System.out.println("Значение N: " + N);
         System.out.println("Результат: " + S);
+    }
 
+    /**
+     * Дана строка, состоящая из слов кириллицей,
+     * набранных заглавными буквами и разделенных пробелами (одним или несколькими).
+     * Преобразовать каждое слово в строке,
+     * заменив в нем все предыдущие вхождения его последней буквы на символ «.» (точка).
+     * Например, слово «МИНИМУМ» надо преобразовать в «.ИНИ.УМ». Количество пробелов между словами не изменять.
+     */
+    private static void task49(){
+        System.out.println("\n\nTask 49:\nДана строка, состоящая из слов кириллицей, набранных заглавными буквами и разделенных пробелами (одним или несколькими).\nПреобразовать каждое слово в строке, заменив в нем все предыдущие вхождения его последней буквы на символ «.» (точка).\nНапример, слово «МИНИМУМ» надо преобразовать в «.ИНИ.УМ».\nКоличество пробелов между словами не изменять.\n\n");
 
+        char giveChar='М';
+        char replaceChar='.';
+        String text="МИНИМУМ БОЛОТО МОЛОКО МАКСИМУМ АРЕНДА";
+        System.out.println(text);
+
+        String replaceStr= replaceChar(giveChar,replaceChar,text);
+        System.out.println(replaceStr);
+    }
+
+    private static String replaceChar(char givenChar, char replaceChar, String text){
+        String deli = " ";// Разделительный знак
+        String[] subStr= text.split(deli);
+        String firstPart,lastPart;
+        char lastChar;
+
+        for (int i=0; i<subStr.length; i++){
+            lastChar = subStr[i].charAt(subStr[i].length()-1);
+            firstPart = subStr[i].substring(0,subStr[i].length()-1);
+            lastPart = subStr[i].substring(subStr[i].length()-1);//index,subStr.length //5,6
+
+            firstPart=firstPart.replace(lastChar, replaceChar);
+            subStr[i]=firstPart+lastPart+" ";
+
+        }
+        return Arrays.toString(subStr);
     }
 
 
     public static void main(String[] args) {
-        Start();
-        task3();
-        task26();
+//        Start();
+//        task3();
+//        task26();
+        task49();
+//        test1();
     }
 }
